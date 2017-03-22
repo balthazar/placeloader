@@ -1,6 +1,6 @@
 {
   "name": "react-placeloader",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Hold things in place, while loading.",
   "main": "dist",
   "scripts": {
