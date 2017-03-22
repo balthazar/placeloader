@@ -1,19 +1,19 @@
-@keyframes placeloaderAnim {
+@keyframes placeloader-right {
   0%   { background-position: 200% 0; }
   100% { background-position: 0 0; }
 }
 
-@keyframes placeloaderAnimLeft {
+@keyframes placeloader-left {
   0%   { background-position: 0 0; }
   100% { background-position: 200% 0; }
 }
 
-@keyframes placeloaderAnimTop {
+@keyframes placeloader-top {
   0%   { background-position: 0 0; }
   100% { background-position: 0 200%; }
 }
 
-@keyframes placeloaderAnimBottom {
+@keyframes placeloader-bottom {
   0%   { background-position: 0 200%; }
   100% { background-position: 0 0; }
 }
@@ -22,12 +22,12 @@
  * Default right
  */
 .placeloader {
-  animation: 1s linear infinite placeloaderAnim;
+  animation: 1s linear infinite placeloader-right;
   background-image: linear-gradient(to right, #eee 0%, #ddd 10%, #eee 20%);
 }
 
 .placeloader2 {
-  animation: 1s linear infinite placeloaderAnim;
+  animation: 1s linear infinite placeloader-right;
   background-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 100%);
 }
 
@@ -35,12 +35,12 @@
  * Left
  */
 .placeloader-left {
-  animation: 1s linear infinite placeloaderAnimLeft;
+  animation: 1s linear infinite placeloader-left;
   background-image: linear-gradient(to left, #eee 0%, #ddd 10%, #eee 20%);
 }
 
 .placeloader2-left {
-  animation: 1s linear infinite placeloaderAnimLeft;
+  animation: 1s linear infinite placeloader-left;
   background-image: linear-gradient(to left, transparent 0%, rgba(0, 0, 0, 0.25) 100%);
 }
 
@@ -48,12 +48,12 @@
  * Bottom
  */
 .placeloader-bottom {
-  animation: 1s linear infinite placeloaderAnimBottom;
+  animation: 1s linear infinite placeloader-bottom;
   background-image: linear-gradient(to bottom, #eee 0%, #ddd 10%, #eee 20%);
 }
 
 .placeloader2-bottom {
-  animation: 1s linear infinite placeloaderAnimBottom;
+  animation: 1s linear infinite placeloader-bottom;
   background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.25) 100%);
 }
 
@@ -61,12 +61,12 @@
  * Top
  */
 .placeloader-top {
-  animation: 1s linear infinite placeloaderAnimTop;
+  animation: 1s linear infinite placeloader-top;
   background-image: linear-gradient(to top, #eee 0%, #ddd 10%, #eee 20%);
 }
 
 .placeloader2-top {
-  animation: 1s linear infinite placeloaderAnimTop;
+  animation: 1s linear infinite placeloader-top;
   background-image: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.25) 100%);
 }
 

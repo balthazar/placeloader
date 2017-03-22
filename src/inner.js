@@ -1,26 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react'
-import Radium, { keyframes } from 'radium'
 
-const anim = {
-  right: keyframes({
-    '0%': { backgroundPosition: '200% 0' },
-    '100%': { backgroundPosition: '0 0 ' },
-  }),
-  left: keyframes({
-    '0%': { backgroundPosition: '0 0' },
-    '100%': { backgroundPosition: '200% 0 ' },
-  }),
-  bottom: keyframes({
-    '0%': { backgroundPosition: '0 200%' },
-    '100%': { backgroundPosition: '0 0 ' },
-  }),
-  top: keyframes({
-    '0%': { backgroundPosition: '0 0' },
-    '100%': { backgroundPosition: '0 200% ' },
-  }),
-}
-
-@Radium
 class InnerPlaceLoader extends PureComponent {
 
   static propTypes = {
@@ -59,8 +38,7 @@ class InnerPlaceLoader extends PureComponent {
         : `linear-gradient(to ${dir}, transparent 0%, ${color} 100%)`
 
     const coreStyle = {
-      animation: `x ${speed} linear infinite`,
-      animationName: anim[dir],
+      animation: `placeloader-${dir} ${speed} linear infinite`,
       backgroundImage,
       backgroundSize: '200%',
       overflow: 'hidden',

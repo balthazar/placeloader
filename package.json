@@ -7,13 +7,12 @@
     "start": "start-storybook -p 3000 -c .storybook --dont-track",
     "lint": "eslint src",
     "docs": "build-storybook -c .storybook -o docs && perl -pi -e 's/React Storybook/PlaceLoader/g' docs/index.html && cp .storybook/favicon.ico docs",
-    "build": "babel src -d dist",
+    "build": "rm -rf dist && babel src -d dist && node-sass main.scss --output-style compressed -o dist",
     "deploy": "npm run docs && surge -p docs -d placeloader.surge.sh && surge -p vanilla -d placeloader-vanilla.surge.sh"
   },
   "author": "Balthazar Gronon <bgronon@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "radium": "^0.18.1",
     "react-motion": "^0.4.7"
   },
   "devDependencies": {
@@ -27,6 +26,7 @@
     "eslint-config-zavatta": "^4.2.0",
     "eslint-config-zavatta-react": "^2.1.1",
     "eslint-plugin-react": "^6.10.0",
+    "node-sass": "^4.5.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "surge": "^0.18.0"

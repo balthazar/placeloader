@@ -13,6 +13,12 @@ If you're only interested in the vanilla, checkout the [website](https://placelo
 
     yarn add react-placeloader
 
+And import the stylesheet the way your bundler allows you to.
+
+```scss
+@import '~react-placeloader/main';
+```
+
 #### Usage
 
 It is also important to note that providing a width and height is required for them to work properly.

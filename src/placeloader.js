@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react'
 import { TransitionMotion, spring } from 'react-motion'
-import { StyleRoot } from 'radium'
 
 import InnerPlaceLoader from './inner'
 
@@ -19,9 +18,7 @@ const getStyle = ({ key, style }, styles) => ({
 const PlaceLoader = ({ isLoading, children, style, ...props }) => {
 
   const loader = (
-    <StyleRoot style={{ width: '100%', height: '100%' }}>
-      <InnerPlaceLoader {...props} />
-    </StyleRoot>
+    <InnerPlaceLoader {...props} />
   )
 
   const items = [
