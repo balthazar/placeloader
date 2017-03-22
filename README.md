@@ -12,7 +12,7 @@ If you're only interested in the vanilla, checkout the [website](https://placelo
 #### Install
 
     yarn add react-placeloader
-    
+
 #### Usage
 
 It is also important to note that providing a width and height is required for them to work properly.
