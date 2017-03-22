@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+  <head>
+
+    <title>placeloader</title>
+    <link rel="stylesheet" href="main.css">
+
+    <style>
+
+      /* css manual concatenation: performances purposes, an expert taught me */
+
+      * { margin: 0; box-sizing: border-box; border: 0; }
+      html, body { font-family: monospace; }
+      body { background-color: #D7DDE2; color: #4D5058; padding: 3rem; max-width: 60rem; margin: 0 auto; }
+
+      ::selection { background-color: #5995DD; color: #F6F8F8; }
+      ::-moz-selection { background-color: #5995DD; color: #F6F8F8; }
+
+      .title { color: #2C5E9E; }
+      .sub { color: #5995DD; margin: 0.5rem 0 3rem 0; }
+      .grid { display: flex; flex-wrap: wrap; justify-content: center; }
+      .qb { width: 13rem; height: 13rem; }
+      .code { background-color: #4D5058; color: #F6F8F8; padding: 0.5rem; }
+      .yarn { position: absolute; top: 1rem; left: 1rem; padding: 0.5rem 2rem; }
+
+      .pic { height: 8rem; width: 8rem; flex-shrink: 0 }
+      .line { height: 2rem; width: 100%; }
+      .line + .line { margin-top: 1rem; }
+      .lines { margin-left: 2rem; flex-grow: 1; }
+      .image-load { width: 7rem; height: 7rem; margin-right: 1rem; margin-bottom: 1rem; cursor: pointer; }
+
+      .f { display: flex; }
+      .fcol { flex-direction: column; }
+      .fac { display: flex; align-items: center; }
+      .z { display: flex; justify-content: center; align-items: center; }
+      .mt { margin-top: 2rem; }
+      .mb { margin-bottom: 2rem; }
+
+    </style>
+
+    <script>
+      var loading = false
+
+      function reloadImage () {
+        if (loading) { return }
+        loading = true
+        var img = document.querySelectorAll('.image-load')[0]
+        img.setAttribute('src', '')
+
+        setTimeout(function () {
+          img.setAttribute('src', 'https://avatars0.githubusercontent.com/u/6033345?v=3')
+          loading = false
+        }, 2E3)
+      }
+
+    </script>
+
+  </head>
+  <body>
+
+    <h1 class="title z">placeloader(s)</h1>
+
+    <p class="sub z">Hold things in place, while loading.</p>
+
+    <span class="yarn code">yarn add placeloader</span>
+
+    <div class="grid">
+      <div class="qb z placeloader">placeloader</div>
+      <div class="qb z placeloader-left">placeloader-left</div>
+      <div class="qb z placeloader-bottom">placeloader-bottom</div>
+      <div class="qb z placeloader-top">placeloader-top</div>
+    </div>
+
+    <div class="grid">
+      <div class="qb z placeloader2">placeloader2</div>
+      <div class="qb z placeloader2-left">placeloader2-left</div>
+      <div class="qb z placeloader2-bottom">placeloader2-bottom</div>
+      <div class="qb z placeloader2-top">placeloader2-top</div>
+    </div>
+
+    <div>
+      <p class="mt mb sub">install &amp; usage</p>
+
+      <span>Import the style the way you prefer, either using the source scss file or the compiled and minified css.</span>
+
+      <pre class="code mt">@import '~placeloader/main.scss'</pre>
+      <pre class="code mt mb">&lt;link rel="stylesheet" href="node_modules/placeloader/main.css"&gt;</pre>
+
+      <span>And then simply declare the placeloader class you want on an element.</span>
+      <span>Keep in mind the speed of the animation will differ depending on its size, as shown in the below examples.</span>
+
+    </div>
+
+    <div>
+
+      <p class="mt mb sub">examples</p>
+
+      <div class="f">
+        <div class="pic placeloader-bottom"></div>
+        <div class="lines">
+          <div class="line placeloader"></div>
+          <div class="line placeloader"></div>
+          <div class="line placeloader"></div>
+        </div>
+      </div>
+
+      <div class="f mt">
+        <div class="pic placeloader2-bottom"></div>
+        <div class="lines">
+          <div class="line placeloader2"></div>
+          <div class="line placeloader2"></div>
+          <div class="line placeloader2"></div>
+        </div>
+      </div>
+
+      <div class="fac fcol mt">
+        <img onclick="reloadImage()" class="image-load placeloader2" src="https://avatars0.githubusercontent.com/u/6033345?v=3" />
+        <span>Click to "reload"</span>
+      </div>
+
+    </div>
+
+  </body>
+</html>

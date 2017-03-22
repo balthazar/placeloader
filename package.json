@@ -1,0 +1,40 @@
+{
+  "name": "react-placeloader",
+  "version": "0.0.1",
+  "description": "Hold things in place, while loading.",
+  "main": "dist",
+  "scripts": {
+    "start": "start-storybook -p 3000 -c .storybook --dont-track",
+    "lint": "eslint src",
+    "docs": "build-storybook -c .storybook -o docs && perl -pi -e 's/React Storybook/PlaceLoader/g' docs/index.html && cp .storybook/favicon.ico docs",
+    "build": "babel src -d dist",
+    "deploy": "npm run docs && surge -p docs -d placeloader.surge.sh && surge -p vanilla -d placeloader-vanilla.surge.sh"
+  },
+  "author": "Balthazar Gronon <bgronon@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "radium": "^0.18.1",
+    "react-motion": "^0.4.7"
+  },
+  "devDependencies": {
+    "@kadira/react-storybook-addon-info": "^3.3.0",
+    "@kadira/storybook": "^2.35.3",
+    "babel-cli": "^6.24.0",
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-stage-0": "^6.22.0",
+    "eslint": "^3.17.0",
+    "eslint-config-zavatta": "^4.2.0",
+    "eslint-config-zavatta-react": "^2.1.1",
+    "eslint-plugin-react": "^6.10.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "surge": "^0.18.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "zavatta",
+      "zavatta-react"
+    ]
+  }
+}
