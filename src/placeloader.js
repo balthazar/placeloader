@@ -6,16 +6,16 @@ import InnerPlaceLoader from './inner'
 const willLeave = () => ({ opacity: spring(0) })
 const willEnter = () => ({ opacity: 0 })
 
-const getStyle = ({ key, style }, styles) => ({
+const getStyle = ({ key, style }, innerStyle) => ({
   ...style,
-  ...styles,
+  ...innerStyle,
   ...(key === 'content'
     ? { position: 'absolute', top: 0, left: 0 }
     : { width: '100%', height: '100%' }
   ),
 })
 
-const PlaceLoader = ({ isLoading, children, style, ...props }) => {
+const PlaceLoader = ({ isLoading, children, style, innerStyle, ...props }) => {
 
   const loader = (
     <InnerPlaceLoader {...props} />
@@ -33,10 +33,10 @@ const PlaceLoader = ({ isLoading, children, style, ...props }) => {
       willEnter={willEnter}
       willLeave={willLeave}>
       {inter => (
-        <div className='placeloader-root' style={style}>
+        <div className='placeloader-root' style={{ position: 'relative', ...style }}>
           {inter.map(item => (
-            <div style={getStyle(item, style)} key={item.key}>
-              {item.data}
+            <div style={getStyle(item, innerStyle)} key={item.key}>
+              {typeof item.data === 'function' ? item.data() : item.data}
             </div>
           ))}
         </div>
@@ -46,18 +46,20 @@ const PlaceLoader = ({ isLoading, children, style, ...props }) => {
 }
 
 PlaceLoader.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   isLoading: PropTypes.bool,
   className: PropTypes.string,
   style: PropTypes.shape({
-    width: PropTypes.string.isRequired,
-    height: PropTypes.string.isRequired,
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   }).isRequired,
+  innerStyle: PropTypes.object,
   ...InnerPlaceLoader.propTypes,
 }
 
 PlaceLoader.defaultProps = {
   ...InnerPlaceLoader.defaultProps,
+  innerStyle: {},
 }
 
 export default PlaceLoader
