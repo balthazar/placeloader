@@ -43,6 +43,7 @@ const PlaceLoader = ({ isLoading, children, style, innerStyle, ...props }) => {
       )}
     </TransitionMotion>
   )
+
 }
 
 PlaceLoader.propTypes = {

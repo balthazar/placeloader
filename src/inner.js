@@ -15,8 +15,8 @@ class InnerPlaceLoader extends PureComponent {
     dir: 'right',
     speed: '1s',
     kind: 1,
-    color: 'rgba(0, 0, 0, 0.25)',
-    colors: ['#eee', '#ddd'],
+    color: 'rgba(0, 0, 0, 0.1)',
+    colors: ['transparent', 'rgba(0, 0, 0, 0.1)'],
   }
 
   render () {
