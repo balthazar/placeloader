@@ -15,7 +15,7 @@ const getStyle = ({ key, style }, innerStyle) => ({
   ),
 })
 
-const PlaceLoader = ({ isLoading, children, style, innerStyle, ...props }) => {
+const PlaceLoader = ({ isLoading, className, children, style, innerStyle, ...props }) => {
 
   const loader = (
     <InnerPlaceLoader {...props} />
@@ -33,7 +33,7 @@ const PlaceLoader = ({ isLoading, children, style, innerStyle, ...props }) => {
       willEnter={willEnter}
       willLeave={willLeave}>
       {inter => (
-        <div className='placeloader-root' style={{ position: 'relative', ...style }}>
+        <div className={`placeloader-root ${className}`} style={{ position: 'relative', ...style }}>
           {inter.map(item => (
             <div style={getStyle(item, innerStyle)} key={item.key}>
               {typeof item.data === 'function' ? item.data() : item.data}
@@ -60,6 +60,7 @@ PlaceLoader.propTypes = {
 
 PlaceLoader.defaultProps = {
   ...InnerPlaceLoader.defaultProps,
+  className: '',
 }
 
 export default PlaceLoader
