@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { TransitionMotion, spring } from 'react-motion'
 
 import InnerPlaceLoader from './inner'
